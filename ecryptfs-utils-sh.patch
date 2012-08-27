@@ -1,0 +1,13 @@
+--- ecryptfs-utils-38/configure.ac.orig	2008-01-02 22:38:33.000000000 +0100
++++ ecryptfs-utils-38/configure.ac	2008-01-13 20:16:45.171399011 +0100
+@@ -234,8 +234,8 @@
+ 		AC_MSG_ERROR([Cannot locate gpgme])
+ 	else
+ 		AC_MSG_RESULT([found])
+-		GPGME_CFLAGS="`\"${with_gpgme_prefix}/bin/gpgme-config\" --cflags`"
+-		GPGME_LIBS="`\"${with_gpgme_prefix}/bin/gpgme-config\" --libs`"
++		GPGME_CFLAGS="$("${with_gpgme_prefix}/bin/gpgme-config" --cflags)"
++		GPGME_LIBS="$("${with_gpgme_prefix}/bin/gpgme-config" --libs)"
+ 	fi
+ fi
+ 

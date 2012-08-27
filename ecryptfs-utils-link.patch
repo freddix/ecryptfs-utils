@@ -1,0 +1,24 @@
+diff -aurN ecryptfs-utils-97.orig/src/libecryptfs/Makefile.am ecryptfs-utils-97/src/libecryptfs/Makefile.am
+--- ecryptfs-utils-97.orig/src/libecryptfs/Makefile.am	2012-06-28 17:18:14.935837365 +0200
++++ ecryptfs-utils-97/src/libecryptfs/Makefile.am	2012-06-28 17:19:04.842211518 +0200
+@@ -23,7 +23,7 @@
+ 	-version-info @LIBECRYPTFS_LT_CURRENT@:@LIBECRYPTFS_LT_REVISION@:@LIBECRYPTFS_LT_AGE@ \
+ 	-no-undefined
+ libecryptfs_la_CFLAGS = $(AM_CFLAGS) $(CRYPTO_CFLAGS) $(KEYUTILS_CFLAGS)
+-libecryptfs_la_LIBADD = $(CRYPTO_LIBS) $(KEYUTILS_LIBS)
++libecryptfs_la_LIBADD = $(CRYPTO_LIBS) $(KEYUTILS_LIBS) -ldl
+ 
+ splint:
+ 	splint -warnposix -preproc -unrecog -predboolint -boolops +matchanyintegral *.c
+diff -aurN ecryptfs-utils-97.orig/src/libecryptfs-swig/Makefile.am ecryptfs-utils-97/src/libecryptfs-swig/Makefile.am
+--- ecryptfs-utils-97.orig/src/libecryptfs-swig/Makefile.am	2012-06-28 17:18:14.935837365 +0200
++++ ecryptfs-utils-97/src/libecryptfs-swig/Makefile.am	2012-06-28 17:18:29.088660434 +0200
+@@ -8,7 +8,7 @@
+ _libecryptfs_la_SOURCES = $(srcdir)/libecryptfs_wrap.c $(SWIG_SOURCES)
+ _libecryptfs_la_CFLAGS = $(SWIG_PYTHON_CPPFLAGS) -I$(top_srcdir)/src/include
+ _libecryptfs_la_LDFLAGS = -module
+-_libecryptfs_la_LIBADD = ../libecryptfs/.libs/libecryptfs.la
++_libecryptfs_la_LIBADD = ../libecryptfs/.libs/libecryptfs.la -lpython
+ 
+ $(srcdir)/libecryptfs_wrap.c : $(SWIG_SOURCES)
+ 	$(SWIG) $(SWIG_PYTHON_OPT) -I$(top_srcdir)/src/include -o $@ $<
