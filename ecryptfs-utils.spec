@@ -1,11 +1,11 @@
 Summary:	The eCryptfs mount helper and support libraries
 Name:		ecryptfs-utils
-Version:	100
+Version:	101
 Release:	1
 License:	GPL v2+
 Group:		Base
 Source0:	http://launchpad.net/ecryptfs/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	efaa5eabbd368268874536036397f73b
+# Source0-md5:	7a17714b2e4555a79d464e260b179f4f
 Patch0:		%{name}-sh.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-link.patch
@@ -97,8 +97,8 @@ rm -f %{py_sitedir}/%{name}/*.la
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	libs -p /sbin/ldconfig
-%postun	libs -p /sbin/ldconfig
+%post	libs -p /usr/sbin/ldconfig
+%postun	libs -p /usr/sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -155,7 +155,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n pam-pam_ecryptfs
 %defattr(644,root,root,755)
-%doc doc/ecryptfs-pam-doc.txt
 %attr(755,root,root) /%{_lib}/security/pam_ecryptfs.so
 %{_mandir}/man8/pam_ecryptfs.8*
 
