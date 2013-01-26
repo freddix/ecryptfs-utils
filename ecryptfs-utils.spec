@@ -1,11 +1,11 @@
 Summary:	The eCryptfs mount helper and support libraries
 Name:		ecryptfs-utils
-Version:	101
+Version:	103
 Release:	1
 License:	GPL v2+
 Group:		Base
 Source0:	http://launchpad.net/ecryptfs/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	7a17714b2e4555a79d464e260b179f4f
+# Source0-md5:	39929d850edd24b175ff0c82722e0de1
 Patch0:		%{name}-sh.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-link.patch
@@ -105,6 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README THANKS doc/{ecryptfs-faq.html,ecryptfs-pkcs11-helper-doc.txt}
 
 %attr(755,root,root) %{_bindir}/ecryptfs-add-passphrase
+%attr(755,root,root) %{_bindir}/ecryptfs-find
 %attr(755,root,root) %{_bindir}/ecryptfs-insert-wrapped-passphrase-into-keyring
 %attr(755,root,root) %{_bindir}/ecryptfs-manager
 %attr(755,root,root) %{_bindir}/ecryptfs-migrate-home
