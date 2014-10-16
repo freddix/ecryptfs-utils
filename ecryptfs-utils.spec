@@ -1,7 +1,7 @@
 Summary:	The eCryptfs mount helper and support libraries
 Name:		ecryptfs-utils
 Version:	104
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Base
 Source0:	http://launchpad.net/ecryptfs/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
